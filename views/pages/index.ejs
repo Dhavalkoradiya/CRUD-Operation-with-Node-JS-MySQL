@@ -1,0 +1,47 @@
+<% include ../partials/header %>
+	
+	<div class="container">
+		<h1>Event List</h1>
+		<div class="row">
+			<div class="col-lg-12 my-4">
+				<a href="/event/add" class="btn btn-primary">Add New Event</a>
+			</div>
+			<div class="col-lg-12">
+				<table class="table table-bordered table-hover">
+					<thead>
+					<tr>
+						<th>#</th>
+						<th>Title</th>
+						<th>File</th>
+						<th>Description</th>
+						<th>Location</th>
+						<th>Action</th>
+					</tr>
+					</thead>
+					<% if (items.length > 0) {%>
+					<tbody>
+						<% items.forEach(function(item,index){ %>
+						<tr>
+							<td><%= index + 1 %></td>
+							<td><%= item.name %></td>
+							<td><% if (item.file_upload != '') { %> 
+								<a href="<%= 'download/' + item.id; %>">Download</a>
+								<% } %>
+							</td>
+							<td><%= item.description %></td>
+							<td><%= item.location %></td>
+							<td><a href="/event/edit/<%= item.id %>" class="btn btn-sm btn-primary">Edit</a>
+								<a href="/event/delete/<%= item.id %>" class="btn btn-sm btn-danger">Delete</a></td>
+						</tr>
+						<% }); %>
+					</tbody>
+					<% } else { %>
+					<tr>
+						<td colspan="4" align="center">No record found</td>
+					</tr>
+					<% } %>
+				</table>
+			</div>
+		</div>
+	</div>
+<% include ../partials/footer %>
