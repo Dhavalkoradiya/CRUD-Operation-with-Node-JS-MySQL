@@ -15,7 +15,7 @@
     "dateformat": "^3.0.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "express-fileupload": "^1.0.0",
+    "express-fileupload": "^1.1.10",
     "express-partials": "^0.3.0",
     "express-session": "^1.15.6",
     "jquery": "^3.3.1",
